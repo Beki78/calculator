@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <link rel="stylesheet" href="style.css" />
+  <body>
+    <nav class="navBar">
+     <a href="/"> <h1>Calculator</h1>
+        </a>
+<i onclick="changeTheme()" class="fa-regular fa-moon icon"></i>    </nav>
+    <main>
+      <h2 class="header">Unit conversion</h2>
+      <div class="container">
+        <button onclick="openMore()" class="btn" id="meter">Meter</button
+        ><button onclick="openMore1()" class="btn" id="litter">Litter</button
+        ><button class="btn" id="pixel">Pixel</button>
+      </div>
+      <h2 class="header">Body calculator</h2>
+      <div class="container">
+        <button class="btn" id="bmi">BMI</button
+        ><button class="btn" id="heat">Heat</button
+        ><button class="btn" id="age">Age</button>
+      </div>
+      <h2 class="header">Maths calculator</h2>
+      <div class="container">
+        <button class="btn" id="slope">Slope</button
+        ><button class="btn" id="randomNo">Random Num</button
+        ><button class="btn" id="gfc">GFC</button>
+      </div>
+      <div class="popup">
+        <h2 class="header"><a href="/">litter</a></h2>
+        <input id="meterNumberInput" type="number" />
+
+        <div class="select">
+          <div class="left">
+            <select name="" id="meterOption">
+              <option value="" disabled selected>select unit</option>
+              <option id="km" value="km">KM</option>
+              <option id="m" value="m">M</option>
+              <option id="cm" value="cm">CM</option>
+            </select>
+          </div>
+          <h4>to</h4>
+          <div class="left">
+            <select name="" id="meterOption2">
+              <option value="" disabled selected>select unit</option>
+              <option id="km" value="km">KM</option>
+              <option id="m" value="m">M</option>
+              <option id="cm" value="cm">CM</option>
+            </select>
+          </div>
+        </div>
+        <button onclick="convert()" id="convert">Convert</button>
+        <h1 id="answer">0</h1>
+      </div>
+      <div class="popup">
+        <h2 class="header"><a href="/">Meter</a></h2>
+        <input id="meterNumberInput" type="number" />
+
+        <div class="select">
+          <div class="left">
+            <select name="" id="meterOption">
+              <option value="" disabled selected>select unit</option>
+              <option id="km" value="km">KM</option>
+              <option id="m" value="m">M</option>
+              <option id="cm" value="cm">CM</option>
+            </select>
+          </div>
+          <h4>to</h4>
+          <div class="left">
+            <select name="" id="meterOption2">
+              <option value="" disabled selected>select unit</option>
+              <option id="km" value="km">KM</option>
+              <option id="m" value="m">M</option>
+              <option id="cm" value="cm">CM</option>
+            </select>
+          </div>
+        </div>
+        <button onclick="convert()" id="convert">Convert</button>
+        <h1 id="answer">0</h1>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

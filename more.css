@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  --main-color: rgb(85, 129, 155);
+  --text-color: rgb(23, 55, 75);
+  --button-color: rgb(189, 223, 242);
+  --header-color: rgb(31, 59, 77);
+  --navbar-color: rgb(125, 164, 189);
+}
+.popup{
+    height: 50vh;
+  background-color: var(--main-color);
+
+}
