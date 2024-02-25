@@ -12,30 +12,30 @@
   <link rel="stylesheet" href="style.css" />
   <body>
     <nav class="navBar">
-     <a href="/"> <h1>Calculator</h1>
-        </a>
-<i onclick="changeTheme()" class="fa-regular fa-moon icon"></i>    </nav>
+      <a href="/"> <h1>Calculator</h1> </a>
+      <i onclick="changeTheme()" class="fa-regular fa-moon icon"></i>
+    </nav>
     <main>
       <h2 class="header">Unit conversion</h2>
       <div class="container">
-        <button onclick="openMore()" class="btn" id="meter">Meter</button
-        ><button onclick="openMore1()" class="btn" id="litter">Litter</button
-        ><button class="btn" id="pixel">Pixel</button>
+        <button onclick="openMore()" class="btn" id="meter">Length</button
+        ><button onclick="openMoreL()" class="btn" id="litter">Volume</button
+        ><button onclick="openMoreP()" class="btn" id="pixel">Pressure</button>
       </div>
       <h2 class="header">Body calculator</h2>
       <div class="container">
-        <button class="btn" id="bmi">BMI</button
-        ><button class="btn" id="heat">Heat</button
-        ><button class="btn" id="age">Age</button>
+        <button onclick="openMoreBMI()" class="btn" id="bmi">BMI</button
+        ><button onclick="openMoreHeat()" class="btn" id="heat">Heat</button
+        ><button onclick="openMoreAge()" class="btn" id="age">Age</button>
       </div>
       <h2 class="header">Maths calculator</h2>
       <div class="container">
-        <button class="btn" id="slope">Slope</button
-        ><button class="btn" id="randomNo">Random Num</button
-        ><button class="btn" id="gfc">GFC</button>
+        <button onclick="openMoreSlope()" class="btn" id="slope">Slope</button
+        ><button onclick="openMoreRandom()" class="btn" id="randomNo">Random Num</button
+        ><button onclick="openMoreAbs()" class="btn" id="gfc">Abs</button>
       </div>
       <div class="popup">
-        <h2 class="header"><a href="/">litter</a></h2>
+        <h2 class="header"><a href="/">Length</a></h2>
         <input id="meterNumberInput" type="number" />
 
         <div class="select">
@@ -60,31 +60,134 @@
         <button onclick="convert()" id="convert">Convert</button>
         <h1 id="answer">0</h1>
       </div>
-      <div class="popup">
-        <h2 class="header"><a href="/">Meter</a></h2>
-        <input id="meterNumberInput" type="number" />
+      <div class="popup" id="popupL">
+        <h2 class="header"><a href="/">Volume</a></h2>
+        <input id="volumeNumberInput" type="number" />
 
         <div class="select">
           <div class="left">
-            <select name="" id="meterOption">
+            <select name="" id="meterOptionL">
               <option value="" disabled selected>select unit</option>
-              <option id="km" value="km">KM</option>
-              <option id="m" value="m">M</option>
-              <option id="cm" value="cm">CM</option>
+              <option id="l" value="l">L</option>
+              <option id="ml" value="ml">ML</option>
+              <option id="gl" value="gl">Gl</option>
             </select>
           </div>
           <h4>to</h4>
           <div class="left">
-            <select name="" id="meterOption2">
+            <select name="" id="meterOptionL2">
               <option value="" disabled selected>select unit</option>
-              <option id="km" value="km">KM</option>
-              <option id="m" value="m">M</option>
-              <option id="cm" value="cm">CM</option>
+              <option id="l" value="l">L</option>
+              <option id="ml" value="ml">ML</option>
+              <option id="gl" value="gl">GL</option>
             </select>
           </div>
         </div>
-        <button onclick="convert()" id="convert">Convert</button>
-        <h1 id="answer">0</h1>
+        <button onclick="convertL()" id="convert">Convert</button>
+        <h1 id="answerL">0</h1>
+      </div>
+      <div class="popup" id="popupP">
+        <h2 class="header"><a href="/">Pixel</a></h2>
+        <input id="pressureNumberInput" type="number" />
+
+        <div class="select">
+          <div class="left">
+            <select name="" id="meterOptionP">
+              <option value="" disabled selected>select unit</option>
+              <option id="pas" value="pas">Pas</option>
+              <option id="bar" value="bar">Bar</option>
+              <option id="tor" value="tor">Torr</option>
+            </select>
+          </div>
+          <h4>to</h4>
+          <div class="left">
+            <select name="" id="meterOptionP2">
+              <option value="" disabled selected>select unit</option>
+              <option id="Pas" value="pas">Pas</option>
+              <option id="bar" value="bar">Bar</option>
+              <option id="tor" value="tor">Torr</option>
+            </select>
+          </div>
+        </div>
+        <button onclick="convertP()" id="convert">Convert</button>
+        <h1 id="answerP">0</h1>
+      </div>
+      <div class="popup" id="popupBMI">
+        <h2 class="header"><a href="/">BMI</a></h2>
+        <label for="height">Height(m)</label>
+        <input id="height" type="number" />
+        <label for="weight">Weight(Kg)</label>
+        <input id="weight" type="number" />
+
+        <br />
+        <button onclick="convertBMI()" id="convert">Convert</button>
+        <h1 id="answerBMI">0</h1>
+      </div>
+      <div class="popup" id="popupHeat">
+        <h2 class="header"><a href="/">Heat</a></h2>
+        <input id="heatNumberInput" type="number" />
+
+        <div class="select">
+          <div class="left">
+            <select name="" id="meterOptionHeat">
+              <option value="" disabled selected>select unit</option>
+              <option id="c" value="c">&deg;C</option>
+              <option id="f" value="f">&deg;F</option>
+            </select>
+          </div>
+          <h4>to</h4>
+          <div class="left">
+            <select name="" id="meterOptionHeat2">
+              <option value="" disabled selected>select unit</option>
+              <option id="c" value="c">&deg;C</option>
+              <option id="f" value="f">&deg;F</option>
+            </select>
+          </div>
+        </div>
+        <button onclick="convertHeat()" id="convert">Convert</button>
+        <h1 id="answerHeat">0</h1>
+      </div>
+      <div class="popup" id="popupAge">
+        <h2 class="header"><a href="/">Age</a></h2>
+        <label for="cy">Current year</label>
+        <input id="cy" type="number" />
+        <label for="ab">Age of birth</label>
+        <input id="ab" type="number" />
+
+        <br />
+        <button onclick="convertAge()" id="convert">Convert</button>
+        <h1 id="answerAge">0</h1>
+      </div>
+      <div class="popup" id="popupSlope">
+        <h2 class="header"><a href="/">Slope</a></h2>
+        <label for="a">Side A</label>
+        <input id="a" type="number" />
+        <label for="b">Side B</label>
+        <input id="b" type="number" />
+
+        <br />
+        <button onclick="convertSlope()" id="convert">Convert</button>
+        <h1 id="answerSlope">0</h1>
+      </div>
+      <div class="popup" id="popupRandom">
+        <h2 class="header"><a href="/">Random Num</a></h2>
+        <label for="min">Min num</label>
+        <input id="min" type="number" />
+        <label for="max">Max num</label>
+        <input id="max" type="number" />
+
+        <br />
+        <button onclick="convertRandom()" id="convert">Generate</button>
+        <h1 id="answerRandom">0</h1>
+      </div>
+      <div class="popup" id="popupAbs">
+        <h2 class="header"><a href="/">Abs</a></h2>
+        <label for="numAbs">Enter a num</label>
+        <input id="numAbs" type="number" />
+
+        <br />
+        <button onclick="convertAbs()" id="convert">Convert</button>
+        <h1 id="answerAbs">0</h1>
       </div>
     </main>
 
